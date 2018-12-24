@@ -1,0 +1,48 @@
+
+- hosts: devchain
+  remote_user: root
+  tasks: 
+
+    - name: Disable dpkg fsync
+      raw: test -e /etc/dpkg/dpkg.cfg.d/unsafe-io || echo force-unsafe-io > /etc/dpkg/dpkg.cfg.d/unsafe-io
+
+    - name: Upgrade debian
+      apt:
+        update_cache: true
+        upgrade: true
+
+    - name: Install dirmngr and https transport
+      apt:
+        name: 
+          - dirmngr
+          - apt-transport-https
+        state: present
+
+    - name: Add nodejs key
+      apt_key:
+        keyserver: keys.gnupg.net
+        id: "1655A0AB68576280"
+
+    - name: Add NodeJS Repository
+      apt_repository:
+        repo: deb https://deb.nodesource.com/node_9.x stretch main
+        state: present
+
+    - name: Install required debs
+      apt:
+        name: 
+          - nodejs
+        state: present
+
+    - name: Download parity
+      get_url:
+        url: https://releases.parity.io/ethereum/v2.2.5/x86_64-unknown-linux-gnu/parity
+        dest: /usr/local/bin/parity
+        mode: "0755"
+        force: yes
+
+    - name: Create /etc/parity
+      file: 
+        path: /etc/parity
+        state: directory
+        mode: "0755"

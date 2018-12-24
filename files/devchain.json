@@ -1,0 +1,47 @@
+{
+    "name": "DevChain",
+    "engine": {
+        "authorityRound": {
+            "params": {
+                "stepDuration": "5", 
+                "blockReward": "158548959915000000000", 
+                "validators" : {
+                    "list": [
+                        "0x00bb4af129746f92a8c19438f0baa39e81f0ea24",                        "0x0086798562c3a3b1a5c4fd11ff1e49bdf070bfb1",                        "0x00ad75b60e743033b6c42fcee599e7bde7ef0202",                        "0x002ce19f5e7cdd15cd7ca6bbae0e3a5aa4f1df5e"                    ]
+                }
+            }
+        }
+    },
+    "params": {
+        "gasLimitBoundDivisor": "0x400",
+        "maximumExtraDataSize": "0x20",
+        "minGasLimit": "0x1388",
+        "networkID" : "8883",
+        "eip155Transition": 0,
+        "validateChainIdTransition": 0,
+        "eip140Transition": 0,
+        "eip211Transition": 0,
+        "eip214Transition": 0,
+        "eip658Transition": 0
+    },
+    "genesis": {
+        "seal": {
+            "authorityRound": {
+                "step": "0x0",
+                "signature": "0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            }
+        },
+        "difficulty": "0x20000",
+        "gasLimit": "0x5B8D80"
+    },
+    "nodes": [
+        "enode://29951d0ac0d3b0a20dc381998982556c44dacd2714b0cc1cc0efbe81610ae8b0bf54806ce24f2a7beac241b3b616b750d4ab3eabb09d145ce9070fa39d2a5d76@85.25.210.145:30304",        "enode://b55ec820da099aa431a3bd401046f5db78f98eb1be6ce4bb640312f81d617bb27bdfcadd8ff3a43ada005ea4111449dd33f5162fc37d914aed199cd55823e42c@85.93.89.182:30304",        "enode://d7b5375a02ac30d28ba2a7c0c36ac272099ca93a793172f1336f7226b80b6f75ced215d346f6fd67bdfee7ca8a475a838b0f600048fe20278db101f15ad0dbdf@62.138.0.66:30304",        "enode://6a32c5c35d4d1e236f21c387809ba785335c87141ebdd19e0f881bef89177138534b4072830840668958b65633b03c4a10560ba9f45358af7a7aa3c0ae5fafff@85.93.91.135:30304",        "enode://e310a74e57fb79036d12587d6ac9809f3b4544c1e3b28e2e7e7bf88bf04084968270dd8fe9cd2d40e5b279bd17978a972f268cfc2611ff1968446ce3ed89dcc4@62.138.0.29:30304",        "enode://e8a803922be58e0d7419c1b96e8eb1edd399e207134383387c0360d5f7c5396bc64c65b3d61150c4e38f4d8d18d22448c2d5581565fd8fc31d3513e14c4c3d06@85.25.211.172:30304",        "enode://00486303c9001b79b18d2a7e6ad4d31cbdc66c38a51e2bb60bafcf1931c796deed731577fb3f5bec639ccfa18e5cded544ff84312c481fb4fb532c66b21ed493@62.138.0.225:30304",        "enode://3f15f55604ec97c9f39b2ffae03573ab710dd4883b38b1ea8e4ca6f1dbe718b977f51323e408e90eb778ffeb6f3b9e7c2ed0ee1390f5a4b71476912e58b170ad@62.138.0.236:30304",        "enode://99f1a289ad9a60582c6f26feab37b88d95179f363c73e4b7255965e42a2633b57cd722f9298046fb9d5b423a64b0cb05d109e230ae685b6ef03b4185ba12febe@62.138.16.158:30304"        
+    ], 
+    "accounts": {
+        "0x0000000000000000000000000000000000000001": { "balance": "1", "builtin": { "name": "ecrecover", "pricing": { "linear": { "base": 3000, "word": 0 } } } },
+        "0x0000000000000000000000000000000000000002": { "balance": "1", "builtin": { "name": "sha256", "pricing": { "linear": { "base": 60, "word": 12 } } } },
+        "0x0000000000000000000000000000000000000003": { "balance": "1", "builtin": { "name": "ripemd160", "pricing": { "linear": { "base": 600, "word": 120 } } } },
+        "0x0000000000000000000000000000000000000004": { "balance": "1", "builtin": { "name": "identity", "pricing": { "linear": { "base": 15, "word": 3 } } } }
+                ,"0x008f1023b7b3d30680f1cfad2fb31104543dd8c2": {"balance": "10000000000000000000000000000"}
+            }
+}
