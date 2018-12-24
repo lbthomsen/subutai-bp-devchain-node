@@ -3,7 +3,7 @@ Description=Etherchain Lite
 After=devchain.service
 
 [Service]
-WorkingDirectory=/root/etherchain-lite
+WorkingDirectory=/root/etherchain-light
 ExecStart=/usr/bin/npm run start
 Restart=on-failure
 
