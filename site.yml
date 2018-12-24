@@ -25,7 +25,7 @@
 
     - name: Add NodeJS Repository
       apt_repository:
-        repo: deb https://deb.nodesource.com/node_9.x stretch main
+        repo: deb https://deb.nodesource.com/node_10.x stretch main
         state: present
 
     - name: Install required debs
@@ -46,3 +46,25 @@
         path: /etc/parity
         state: directory
         mode: "0755"
+
+    - name: Create /var/spool/parity
+      file: 
+        path: /var/spool/parity
+        state: directory
+        mode: "0755"
+
+    - name: Install devchain.json
+      template:
+        src: files/devchain.json
+        dest: /etc/parity/devchain.json
+
+    - name: Install devchain.service
+      template:
+        src: files/devchain.service
+        dest: /lib/systemd/system/devchain.service
+
+    - name: Start devchain
+      systemd:
+        name: devchain
+        daemon-reload: true
+        state: started
