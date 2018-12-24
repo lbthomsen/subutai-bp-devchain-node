@@ -3,7 +3,7 @@ Description=Parity Devchain
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/parity --base-path /var/spool/parity --chain /etc/parity/devchain.json --no-warp --tracing=on --fat-db=on --jsonrpc-cors="all" --jsonrpc-apis="all" --jsonrpc-interface=all --geth
+ExecStart=/usr/local/bin/parity --base-path /var/spool/parity --chain /etc/parity/devchain.json --no-warp --tracing=on --fat-db=on --jsonrpc-cors="all" --jsonrpc-apis="all" --jsonrpc-interface=all 
 Restart=on-failure
 
 KillSignal=SIGHUP
