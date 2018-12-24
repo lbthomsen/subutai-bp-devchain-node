@@ -32,6 +32,8 @@
       apt:
         name: 
           - nodejs
+          - git
+          - build-essential
         state: present
 
     - name: Download parity
@@ -67,4 +69,31 @@
       systemd:
         name: devchain
         daemon-reload: true
-        state: started
+        state: restarted
+
+    - name: Clone etherchain-light
+      git:
+        repo: "https://github.com/lbthomsen/etherchain-light.git"
+        dest: /root/etherchain-light
+        recursive: true
+
+    - name: Run npm install
+      shell: npm install
+      args:
+        chdir: /root/etherchain-light
+
+    - name: Copy etherchain-light config
+      template:
+        src: files/config.js
+        dest: /root/etherchain-light/config.js
+
+    - name: Copy etherchain.service
+      template: 
+        src: files/etherchain.service
+        dest: /lib/systemd/system/etherchain.service
+
+    - name: Restart etherchain
+      systemd:
+        name: etherchain
+        daemon-reload: true
+        state: restarted

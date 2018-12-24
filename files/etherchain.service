@@ -1,0 +1,12 @@
+[Unit]
+Description=Etherchain Lite
+After=devchain.service
+
+[Service]
+ExecStart=cd /root/etherchain-lite && npm run start
+Restart=on-failure
+
+KillSignal=SIGHUP
+
+[Install]
+WantedBy=default.target
